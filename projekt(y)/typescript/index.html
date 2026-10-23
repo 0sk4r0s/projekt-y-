@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazyn Elektro-Bud</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>System Magazynowy Elektro-Bud</h1>
+
+        <section class="form-section">
+            <h2 id="form-title">Dodaj nowy produkt</h2>
+            <form id="product-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="product-ean">Kod EAN:</label>
+                        <input type="text" id="product-ean" pattern="[0-9]{8,13}" title="Wprowadź od 8 do 13 cyfr"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-name">Nazwa produktu:</label>
+                        <input type="text" id="product-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-category">Kategoria:</label>
+                        <select id="product-category" required>
+                            <option value="Kable i przewody">Kable i przewody</option>
+                            <option value="Aparatura modułowa">Aparatura modułowa</option>
+                            <option value="Oświetlenie">Oświetlenie</option>
+                            <option value="Materiały budowlane">Materiały budowlane</option>
+                            <option value="Elektronarzędzia">Elektronarzędzia</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-quantity">Ilość na stanie (szt.):</label>
+                        <input type="number" id="product-quantity" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-sector">Sektor:</label>
+                        <input type="text" id="product-sector" placeholder="np. A" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-rack">Regał:</label>
+                        <input type="text" id="product-rack" placeholder="np. R12" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-shelf">Półka:</label>
+                        <input type="text" id="product-shelf" placeholder="np. P3" required>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn">Dodaj produkt</button>
+                    <button type="button" id="cancel-btn" class="hidden">Anuluj edycję</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="search-section">
+            <label for="search-input">Wyszukaj produkt (po kodzie EAN lub nazwie):</label>
+            <input type="text" id="search-input" placeholder="Wpisz kod EAN lub nazwę produktu...">
+        </section>
+
+        <section class="table-section">
+            <h2>Lista produktów i lokalizacja w magazynie</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kod EAN</th>
+                        <th>Nazwa</th>
+                        <th>Kategoria</th>
+                        <th>Lokalizacja (Sektor / Regał / Półka)</th>
+                        <th>Stan magazynowy</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list"></tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
